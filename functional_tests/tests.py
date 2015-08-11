@@ -89,12 +89,30 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Satisfied they both go back to sleep
 
-# Edith wonders wheter the site will remember her list. Then she sees that the site has generated a unique URL for her -- there is some explanatory text to that effect.
+        # Edith wonders wheter the site will remember her list. Then she sees that the site has generated a unique URL for her -- there is some explanatory text to that effect.
 
-# She visits that URL - her to-di list is still  there.
+        # She visits that URL - her to-di list is still  there.
 
-# Satisfied, she goes back to sleep.
+        # Satisfied, she goes back to sleep.
 
+    def test_layout_and_styling(self):
+        # Edith goes to the home page
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # she notices the input box in nicely centered
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+                inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
+        )
+
+        # she starts a new list and sees the input nicely 
+        # centered there too
+        inputbox.send_keys('testing\n')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+                inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
+        )
 
 if __name__=='__main__':
     unittest.main()#warnings='ignore')
