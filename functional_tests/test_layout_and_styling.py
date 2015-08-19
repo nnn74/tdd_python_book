@@ -11,20 +11,13 @@ class LayoutAndStylingTest(FunctionalTest):
         # she notices the input box in nicely centered
         inputbox = self.get_item_input_box()
         self.assertAlmostEqual(
-                inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
+            inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
         )
 
-        # she starts a new list and sees the input nicely 
+        # she starts a new list and sees the input nicely
         # centered there too
         inputbox.send_keys('testing\n')
         inputbox = self.get_item_input_box()
         self.assertAlmostEqual(
-                inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
+            inputbox.location['x'] + inputbox.size['width'] / 2, 512, delta=5
         )
-
-
-
-if __name__=='__main__':
-    unittest.main()#warnings='ignore')
-
-

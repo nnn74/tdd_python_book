@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 
+
 class List(models.Model):
 
     def get_absolute_url(self):
@@ -15,7 +16,5 @@ class Item(models.Model):
         ordering = ('id',)
         unique_together = ('list', 'text')
 
-
     def __str__(self):
         return self.text
-

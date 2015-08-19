@@ -19,8 +19,8 @@ class NewVisitorTest(FunctionalTest):
         # She is invited to enter a to-do item straight away
         inputbox = self.get_item_input_box()
         self.assertEqual(
-                inputbox.get_attribute('placeholder'),
-                'Enter a to-do item'
+            inputbox.get_attribute('placeholder'),
+            'Enter a to-do item'
         )
 
         # She types "Buy peacock feathers" into a text box
@@ -34,7 +34,6 @@ class NewVisitorTest(FunctionalTest):
         self.assertRegex(edith_list_url, '/lists/.+')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
-
         # There is still a text box inviting her to add another item.
         # She enters "Use peacock feathers to make a fly"
         inputbox = self.get_item_input_box()
@@ -47,7 +46,7 @@ class NewVisitorTest(FunctionalTest):
         # Now a new user, Francis, comes along to the site
 
         ## We use a new browser seesion to make sure
-        ## that no information of Edith's is coming 
+        ## that no information of Edith's is coming
         ## through from cookies etc.
         self.browser.quit()
         self.browser = webdriver.Firefox()
@@ -77,15 +76,10 @@ class NewVisitorTest(FunctionalTest):
 
         # Satisfied they both go back to sleep
 
-        # Edith wonders wheter the site will remember her list. Then she sees that the site has generated a unique URL for her -- there is some explanatory text to that effect.
+        # Edith wonders wheter the site will remember her list.
+        # Then she sees that the site has generated a unique URL for her
+        # -- there is some explanatory text to that effect.
 
         # She visits that URL - her to-di list is still  there.
 
         # Satisfied, she goes back to sleep.
-
-
-
-if __name__=='__main__':
-    unittest.main()#warnings='ignore')
-
-

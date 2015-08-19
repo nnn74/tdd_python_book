@@ -1,5 +1,4 @@
 
-from unittest import skip
 from .base import FunctionalTest
 
 
@@ -19,7 +18,6 @@ class ItemValidationTest(FunctionalTest):
         # She tries again with som text for the item, which now works
         self.get_item_input_box().send_keys('Buy milk\n')
         self.check_for_row_in_list_table('1: Buy milk')
-
 
         # Perversely, she now decides to submit a second blank list item
         self.get_item_input_box().send_keys('\n')
@@ -47,8 +45,3 @@ class ItemValidationTest(FunctionalTest):
         self.check_for_row_in_list_table('1: Buy wellies')
         error = self.browser.find_element_by_css_selector('.has-error')
         self.assertEqual(error.text, "You've already got this in your list")
-
-if __name__=='__main__':
-    unittest.main()#warnings='ignore')
-
-
